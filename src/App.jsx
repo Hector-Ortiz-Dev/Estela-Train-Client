@@ -5,7 +5,7 @@ import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import JourneyFormPage from "./pages/JourneyFormPage";
-import JourneyPage from "./pages/JourneysPage";
+import JourneysPage from "./pages/JourneysPage";
 import ProfilePage from "./pages/ProfilePage";
 
 import ProtectedRoute from "./ProtectedRoute";
@@ -24,7 +24,7 @@ function App() {
             <Route path="/journey/:id" element={<h1>Journey</h1>} />
 
             <Route element={<ProtectedRoute />}>
-              <Route path="/journeys" element={<JourneyPage />} />
+              <Route path="/journeys" element={<JourneysPage />} />
               <Route path="/profile" element={<ProfilePage />} />
             </Route>
           </Routes>

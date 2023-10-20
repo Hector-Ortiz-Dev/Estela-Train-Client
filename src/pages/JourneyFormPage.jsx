@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
-import { useJourney } from "../context/JourneyContext";
+import { useJourneys } from "../context/JourneyContext";
 
 function JourneyFormPage() {
   const { register, handleSubmit } = useForm();
-  const { createJourney } = useJourney();
+  const { createJourney } = useJourneys();
   //console.log(createJourney());
 
   const onSubmit = handleSubmit((data) => {

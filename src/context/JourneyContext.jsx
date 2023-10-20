@@ -4,7 +4,7 @@ import { createJourneyRequest, getJourneysRequest } from "../api/journeys.js";
 const JourneyContext = createContext();
 
 // eslint-disable-next-line react-refresh/only-export-components
-export const useJourney = () => {
+export const useJourneys = () => {
   const context = useContext(JourneyContext);
 
   if (!context) {
@@ -18,11 +18,16 @@ export const useJourney = () => {
 
 // eslint-disable-next-line react/prop-types
 export function JourneyProvider({ children }) {
-  const [journeys] = useState([]);
+  const [journeys, setJourneys] = useState([]);
 
   const getJourneys = async () => {
-    const res = await getJourneysRequest();
-    console.log(res);
+    try {
+      const res = await getJourneysRequest();
+      setJourneys(res.data);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const createJourney = async (journey) => {
