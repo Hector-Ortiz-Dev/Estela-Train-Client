@@ -1,5 +1,9 @@
 import { createContext, useContext, useState } from "react";
-import { createJourneyRequest, getJourneysRequest } from "../api/journeys.js";
+import {
+  createJourneyRequest,
+  getJourneysRequest,
+  deleteJourneyRequest,
+} from "../api/journeys.js";
 
 const JourneyContext = createContext();
 
@@ -35,12 +39,23 @@ export function JourneyProvider({ children }) {
     console.log(res);
   };
 
+  const deleteJourney = async (id) => {
+    try {
+      const rest = await deleteJourneyRequest(id);
+      if (rest.status === 204)
+        setJourneys(journeys.filter((journey) => journey._id !== id));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <JourneyContext.Provider
       value={{
         journeys,
         createJourney,
         getJourneys,
+        deleteJourney,
       }}
     >
       {children}

@@ -1,9 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useJourneys } from "../context/JourneyContext";
+import { useNavigate } from "react-router-dom";
 
 function JourneyFormPage() {
   const { register, handleSubmit } = useForm();
   const { createJourney } = useJourneys();
+  const navigate = useNavigate();
   //console.log(createJourney());
 
   const onSubmit = handleSubmit((data) => {
@@ -11,6 +13,7 @@ function JourneyFormPage() {
     data.arrival_date = data.arrival_date.toISOString();
     console.log(data);
     createJourney(data);
+    navigate("/journeys");
   });
 
   return (

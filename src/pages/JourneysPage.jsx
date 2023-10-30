@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { useJourneys } from "../context/JourneyContext";
+//import { useNavigate } from "react-router-dom";
+import JourneyCard from "../components/JourneyCard";
 
 function JourneysPage() {
   const { getJourneys, journeys } = useJourneys();
@@ -9,23 +11,12 @@ function JourneysPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const options = {
-    weekday: "long", // Nombre del día de la semana
-    year: "numeric", // Año
-    month: "long", // Nombre del mes
-    day: "numeric", // Día del mes
-    hour: "numeric", // Hora
-    minute: "numeric", // Minutos
-    second: "numeric", // Segundos
-    timeZoneName: "short", // Nombre de la zona horaria
-  };
-
   if (journeys.length === 0) return <h1>No hay salidas</h1>;
 
   return (
     <div>
       <h1 className="text-center text-2xl font-bold">Horarios de salida</h1>
-      {journeys.map((journey) => (
+      {/* {journeys.map((journey) => (
         <div className="flex justify-center" 
         key={journey._id}>
           <div
@@ -41,6 +32,11 @@ function JourneysPage() {
               )}
             </p>
           </div>
+        </div>
+      ))} */}
+      {journeys.map((journey) => (
+        <div className="flex justify-center" key={journey._id}>
+          <JourneyCard journey={journey} />
         </div>
       ))}
     </div>
