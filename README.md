@@ -11,14 +11,14 @@
 
 ## Tecnologías Utilizadas 🛠️
 
-- **Vue.js**: Utilizamos Vue.js para crear una interfaz de usuario interactiva y receptiva.
+- **Vue.js**: Se utiliza Vue.js para crear una interfaz de usuario interactiva y receptiva.
 - **React**: React se encarga de algunas partes específicas de la aplicación para una mejor experiencia del usuario.
-- **Tailwind CSS**: Estilizamos nuestra aplicación de manera eficiente con Tailwind CSS.
-- **Base de Datos (MongoDB)**: Implementaremos una base de datos para gestionar perfiles de usuario, historial de compras y métodos de pago.
+- **Tailwind CSS**: Se da diseño a  nuestra aplicación de manera eficiente con Tailwind CSS.
+- **Base de Datos (MongoDB)**: Se implementará una base de datos para gestionar perfiles de usuario, historial de compras y métodos de pago.
 
 ## Próximas Características 🚀
 
-- **Compra y Pago de Boletos**: Estamos trabajando en una ventana de compra y pago de boletos fácil de usar.
+- **Compra y Pago de Boletos**: Ventana de compra y pago de boletos fácil de usar.
 - **Selección de Asientos**: Pronto podrás elegir tu asiento en nuestros trenes.
 - **Perfil de Usuario**: Gestiona tu perfil de usuario y mantén un registro de tus compras.
 - **Historial de Compras**: Accede a tu historial de compras y obtén información sobre tus viajes anteriores.
