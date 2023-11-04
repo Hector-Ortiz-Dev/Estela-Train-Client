@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useJourneys } from "../context/JourneyContext";
+import { Link } from "react-router-dom";
 
 function JourneyCard({ journey }) {
   const { deleteJourney } = useJourneys();
@@ -23,6 +24,7 @@ function JourneyCard({ journey }) {
       <p>
         {new Date(journey.departure_date).toLocaleDateString("es-ES", options)}
       </p>
+      <button className="bg-blue-800 rounded-xl px-4 py-1"><Link to={'/journeys/' + journey._id}>Editar</Link></button>
       <button
         className="bg-red-800 rounded-xl px-4 py-1"
         onClick={() => {

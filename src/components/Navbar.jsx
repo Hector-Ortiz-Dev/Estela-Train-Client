@@ -1,44 +1,97 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import logoText from "../assets/logotext.png";
 
 function Navbar() {
   const { isAuthenticated, logout, user } = useAuth();
-  console.log(user);
+  //console.log(user);
 
   return (
-    <nav className="bg-zinc-700 m-3 flex justify-between py-5 px-10 rounded-lg">
-      <Link to="/">
-        <h1 className="text-2xl font-bold">Estela Train</h1>
-      </Link>
-      <ul className="flex gap-x-2">
-        {isAuthenticated ? (
+    <nav className="bg-white/80 flex justify-around py-5 backdrop:blur-md shadow-md w-full top-0 left-0 right-0 z-10">
+      {/* Links Section */}
+      <div className="items-center hidden space-x-8 lg:flex">
+        <Link
+          to="/"
+          className="flex text-black hover:text-blue-light text-xl
+                    cursor-pointer font-bold transition-colors duration-300 hover:underline"
+        >
+          Inicio
+        </Link>
+
+        <Link
+          to="/"
+          className="flex text-black hover:text-blue-light text-xl
+                    cursor-pointer font-bold transition-colors duration-300 hover:underline"
+        >
+          Contacto
+        </Link>
+
+        <Link
+          to="/"
+          className="flex text-black hover:text-blue-light text-xl
+                    cursor-pointer font-bold transition-colors duration-300 hover:underline"
+        >
+          Acerca de
+        </Link>
+      </div>
+
+      {/* Logo */}
+      <div className="flex items-center">
+        <Link to="/" className="cursor-pointer">
+          {/* <h1 className="text-2xl font-bold">Estela Train</h1> */}
+          <img src={logoText} alt="logo" className="h-8" />
+        </Link>
+      </div>
+
+      {/* Auth Section */}
+      <div className="flex items-center space-x-5">
+        {isAuthenticated ? ( // Si el usuario está logeado
           <>
-            <li>Bienvenid@ {user.name}</li>
-            <li>
-              <Link to="/journeys" className="bg-indigo-500 px-4 py-1 rounded-sm">Viajes</Link>
-            </li>
-            <li>
-              <Link
-                to="/"
-                onClick={() => {
-                  logout();
-                }}
+            <p className="text-3xl font-semibold first-letter:text-blue first-letter:font-black">
+              {user.name}
+            </p>
+            <Link
+              to="/profile"
+              className="bg-blue border-blue border-2 shadow text-white font-semibold px-4 py-1 rounded-full hover:bg-white hover:text-blue transition-colors duration-700"
+            >
+              <svg
+                className="inline-block h-5 w-5 mr-1 align-text-top"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                viewBox="0 0 448 512"
               >
-                Logout
-              </Link>
-            </li>
+                <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+              </svg>
+              Perfil
+            </Link>
+            <Link
+              to="/"
+              onClick={() => {
+                logout();
+              }}
+              className="bg-gray border-gray border-2 shadow text-white font-semibold px-4 py-1 rounded-full hover:bg-white hover:text-gray transition-colors duration-700"
+            >
+              Cerrar sesión
+            </Link>
           </>
         ) : (
+          // Si el usuario no está logeado
           <>
-            <li>
-              <Link to="/Login" className="bg-indigo-500 px-4 py-1 rounded-sm">Login</Link>
-            </li>
-            <li>
-              <Link to="/Register" className="bg-indigo-500 px-4 py-1 rounded-sm">Register</Link>
-            </li>
+            <Link
+              to="/Login"
+              className="bg-gray border-gray border-2 shadow text-white font-semibold px-4 py-1 rounded-full hover:bg-white hover:text-gray transition-colors duration-700"
+            >
+              Ingresar
+            </Link>
+            <Link
+              to="/Register"
+              className="bg-indigo-500 border-indigo-500 border-2 shadow text-white font-semibold px-4 py-1 rounded-full hover:bg-white hover:text-blue transition-colors duration-700"
+            >
+              Registrarse
+            </Link>
           </>
         )}
-      </ul>
+      </div>
     </nav>
   );
 }

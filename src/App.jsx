@@ -10,21 +10,22 @@ import ProfilePage from "./pages/ProfilePage";
 
 import ProtectedRoute from "./ProtectedRoute";
 import { JourneyProvider } from "./context/JourneyContext";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
     <AuthProvider>
       <JourneyProvider>
         <BrowserRouter>
-          <main className="container mx-auto px-10">
-            <Navbar />
+          <Navbar />
+          <main className="container mx-auto pt-10 px-10">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/add-journey" element={<JourneyFormPage />} />
-              <Route path="/journey/:id" element={<h1>Journey</h1>} />
+              <Route path="/journeys/:id" element={<JourneyFormPage />} />
 
               <Route element={<ProtectedRoute />}>
                 <Route path="/journeys" element={<JourneysPage />} />
@@ -32,6 +33,7 @@ function App() {
               </Route>
             </Routes>
           </main>
+          <Footer />
         </BrowserRouter>
       </JourneyProvider>
     </AuthProvider>

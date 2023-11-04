@@ -3,6 +3,8 @@ import {
   createJourneyRequest,
   getJourneysRequest,
   deleteJourneyRequest,
+  getJourneyRequest,
+  updateJourneyRequest,
 } from "../api/journeys.js";
 
 const JourneyContext = createContext();
@@ -49,6 +51,24 @@ export function JourneyProvider({ children }) {
     }
   };
 
+  const getJourney = async (id) => {
+    try {
+      const res = await getJourneyRequest(id);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const updateJourney = async (id, journey) => {
+    try {
+      const res = await updateJourneyRequest(id, journey);
+      console.log("Update journey: " + res);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <JourneyContext.Provider
       value={{
@@ -56,6 +76,8 @@ export function JourneyProvider({ children }) {
         createJourney,
         getJourneys,
         deleteJourney,
+        getJourney,
+        updateJourney,
       }}
     >
       {children}

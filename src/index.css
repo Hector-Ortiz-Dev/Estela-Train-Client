@@ -2,7 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --blue: #2F4CBE;
+    --blue-light: #366ABD;
+    --green: #44BBA4;
+    --white: #EDF4F3;
+    --gray-light: #B4D0CF;
+    --gray: #718282;
+    --black: #2D3434;
+}
+
 body{
-    background: #2d3434;
-    color: white;
+    background: var(--white);
+    color: var(--black);
 }
