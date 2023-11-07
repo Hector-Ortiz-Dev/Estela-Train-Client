@@ -7,7 +7,8 @@ function Navbar() {
   //console.log(user);
 
   return (
-    <nav className="bg-white/80 flex justify-around py-5 backdrop:blur-md shadow-md w-full top-0 left-0 right-0 z-10">
+    <nav className="flex w-full justify-around py-5 top-0 left-0 right-0 z-10 bg-white/80 shadow-lg backdrop:blur-md">
+      
       {/* Links Section */}
       <div className="items-center hidden space-x-8 lg:flex">
         <Link
@@ -44,7 +45,7 @@ function Navbar() {
       </div>
 
       {/* Auth Section */}
-      <div className="flex items-center space-x-5">
+      <div className="flex  items-center space-x-5">
         {isAuthenticated ? ( // Si el usuario está logeado
           <>
             <p className="text-3xl font-semibold first-letter:text-blue first-letter:font-black">
@@ -79,13 +80,13 @@ function Navbar() {
           <>
             <Link
               to="/Login"
-              className="bg-gray border-gray border-2 shadow text-white font-semibold px-4 py-1 rounded-full hover:bg-white hover:text-gray transition-colors duration-700"
+              className="bg-gray border-gray border-2 shadow text-white font-semibold px-6 py-1 rounded-full hover:bg-white hover:text-gray transition-colors duration-700"
             >
               Ingresar
             </Link>
             <Link
               to="/Register"
-              className="bg-indigo-500 border-indigo-500 border-2 shadow text-white font-semibold px-4 py-1 rounded-full hover:bg-white hover:text-blue transition-colors duration-700"
+              className="bg-blue border-blue border-2 shadow text-white font-semibold px-4 py-1 rounded-full hover:bg-white hover:text-blue transition-colors duration-700"
             >
               Registrarse
             </Link>

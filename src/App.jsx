@@ -19,7 +19,7 @@ function App() {
       <JourneyProvider>
         <BrowserRouter>
           <Navbar />
-          <main className="container mx-auto pt-10 px-10">
+          <main className="container mx-auto px-10">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />

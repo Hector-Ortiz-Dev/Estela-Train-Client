@@ -25,20 +25,20 @@ function LoginPage() {
   }, [isAuthenticated]);
 
   return (
-    <div className="flex h-[calc(100vh-100px)] items-center justify-center">
-      <div className="bg-zinc-800 max-w-md w-full p-10 rounded-md">
+    <div className="flex h-[calc(80vh-100px)] items-center justify-center mb-10">
+      <div className="bg-white-20 max-w-md w-full p-10 rounded-md shadow-2xl shadow-black">
         {loginErrors.map((error, i) => (
-          <div className="bg-red-500 p-2 text-white text-center my-2" key={i}>
+          <div className="bg-red-500 fixed p-2 mb-5 text-white rounded-lg" key={i}>
             {error}
           </div>
         ))}
-        <h1 className="text-2xl font-bold">Ingresar</h1>
+        <h1 className="text-4xl mb-5 font-main font-bold">Ingresar</h1>
 
         <form onSubmit={onSubmit}>
           <input
             type="text"
             {...register("username", { required: true })}
-            className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
+            className="w-full px-4 py-2 rounded-md my-2"
             placeholder="Nombre de usuario"
           />
           {errors.username && (
@@ -48,18 +48,18 @@ function LoginPage() {
           <input
             type="password"
             {...register("password", { required: true })}
-            className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2"
+            className="w-full px-4 py-2 rounded-md my-2"
             placeholder="Contrasena"
           />
           {errors.password && (
             <p className="text-red-500">La contrasena es requerida</p>
           )}
 
-          <button type="submit">Ingresar</button>
+          <button className="w-full mt-5 bg-blue border-2 border-blue p-2 text-white font-semibold text-xl rounded-lg hover:bg-white hover:border-blue hover:text-blue transition-colors duration-700" type="submit">Ingresar</button>
         </form>
         <p className="flex gap-x-2 justify-between">
           No tienes cuenta?{" "}
-          <Link to="/register" className="text-sky-500">
+          <Link to="/register" className="text-blue underline">
             Registrarse
           </Link>
         </p>

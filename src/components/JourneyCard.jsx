@@ -17,22 +17,30 @@ function JourneyCard({ journey }) {
   };
 
   return (
-    <div className="bg-zinc-800 max-w-md w-full items-center rounded-md text-center my-3">
-      <h2 className="font-bold">
+    <div className="flex w-full items-center my-3 py-5 justify-center border-4 bg-gray-light border-gray rounded-xl shadow-md shadow-gray">
+
+      <h2 className="flex w-full items-center justify-center font-bold text-3xl border-r border-gray">
         {journey.id_from_city} - {journey.id_to_city}
       </h2>
-      <p>
+
+      <p className="flex w-full items-center justify-center font-semibold text-lg">
         {new Date(journey.departure_date).toLocaleDateString("es-ES", options)}
       </p>
-      <button className="bg-blue-800 rounded-xl px-4 py-1"><Link to={'/journeys/' + journey._id}>Editar</Link></button>
-      <button
-        className="bg-red-800 rounded-xl px-4 py-1"
-        onClick={() => {
-          deleteJourney(journey._id);
-        }}
-      >
-        Eliminar
-      </button>
+
+      <div className="flex w-1/2 text-white font-bold items-center justify-center border-l border-gray">
+        <button className="bg-blue rounded-xl px-6 py-2 mr-2">
+          <Link to={"/journeys/" + journey._id}>Editar</Link>
+        </button>
+
+        <button
+          className="bg-red-800 rounded-xl px-6 py-2"
+          onClick={() => {
+            deleteJourney(journey._id);
+          }}
+        >
+          Eliminar
+        </button>
+      </div>
     </div>
   );
 }

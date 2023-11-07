@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import landingImage from "../assets/komeko.jpg";
+import landingImage from "../assets/train-space.jpg";
 
 const HomePage = () => {
   return (
-    <div className="text-center">
+    <div className="text-center my-16">
+
+      {/* Lema */}
       <h1 className="font-main font-bold text-3xl md:text-8xl mb-8 text-gray">
         Estela <p className="inline-block text-blue">Train</p>
       </h1>
@@ -11,6 +13,7 @@ const HomePage = () => {
         Tu viaje en las vías del futuro
       </h2>
 
+      {/* Reservar */}
       <div className="flex w-full mt-12 justify-center rounded-lg bg-gray-light p-5">
         <form className="flex w-full items-center justify-center rounded-lg bg-white p-0 ">
           <div className="flex items-center justify-center border-r border-gray p-5">
@@ -24,7 +27,7 @@ const HomePage = () => {
           </div>
           <select
             autoComplete="Origen"
-            className="w-full bg-white pl-2 text-base font-semibold outline-0 border-r border-gray"
+            className="w-full bg-white pl-2 text-base font-semibold outline-0 border-r border-gray appearance-none"
             value={"Monterrey"}
           >
             <option value="Monterrey">Monterrey</option>
@@ -63,7 +66,7 @@ const HomePage = () => {
           </div>
           <select
             autoComplete="Destino"
-            className="w-full bg-white pl-2 text-base font-semibold outline-0 border-l border-r border-gray"
+            className="w-full bg-white pl-2 text-base font-semibold outline-0 border-l border-r border-gray appearance-none"
             value={"CDMX"}
           >
             <option value="Monterrey">Monterrey</option>
@@ -118,43 +121,44 @@ const HomePage = () => {
         </form>
       </div>
 
-      <div className="flex flex-col md:flex-row justify-between my-16">
+      {/* ¿Qué es Estela Train? */}
+      <div className="flex flex-col md:flex-row justify-between mt-16 rounded-xl shadow-lg shadow-gray p-5 bg-slate-100">
         <img
           src={landingImage}
           alt="train"
-          className="w-full md:w-1/2 rounded-lg shadow-lg"
+          className="w-full md:w-1/2 rounded-lg shadow-lg shadow-black m-10"
         />
         <div className="flex flex-col justify-center items-center md:w-1/2">
-          <h3 className="font-main font-bold text-2xl md:text-5xl text-gray">
+          <h3 className="font-main font-bold text-2xl md:text-5xl text-black">
             ¿Qué es Estela Train?
           </h3>
-          <p className="font-main font-semibold text-xl md:text-3xl text-gray-light mt-5">
+          <p className="font-semibold text-xl md:text-3xl text-gray mt-5">
             Estela Train es un proyecto de tren de alta velocidad que conectará
             las principales ciudades de México.
           </p>
 
-          <p className="font-main font-semibold text-xl md:text-3xl text-gray-light mt-5">
+          <p className="font-semibold text-xl md:text-3xl text-gray mt-5">
             El proyecto está en fase de desarrollo y se espera que esté
             terminado para el año 2023.
           </p>
 
-          <p className="font-main font-semibold text-xl md:text-3xl text-gray-light mt-5">
+          <p className="font-semibold text-xl md:text-3xl text-gray mt-5">
             ¡Reserva tu lugar desde ahora!
           </p>
 
           <Link
             to="/journeys"
-            className="bg-blue p-2 border-2 border-blue rounded-lg text-white font-semibold hover:bg-green hover:border-green transition-colors duration-700 mt-5"
+            className="bg-blue p-2 px-10 border-2 border-blue rounded-lg text-white font-semibold hover:bg-green hover:border-green transition-colors duration-700 mt-5"
           >
             Reservar
           </Link>
 
-          <p className="font-main font-semibold text-xl md:text-3xl text-gray-light mt-5">
+          <p className="font-semibold text-xl md:text-3xl text-gray mt-5">
             ¿Quieres saber más?
           </p>
           <Link
             to="/"
-            className="bg-blue p-2 border-2 border-blue rounded-lg text-white font-semibold hover:bg-green hover:border-green transition-colors duration-700 mt-5"
+            className="bg-blue p-2 px-10 border-2 border-blue rounded-lg text-white font-semibold hover:bg-green hover:border-green transition-colors duration-700 mt-5"
           >
             Conoce más
           </Link>
