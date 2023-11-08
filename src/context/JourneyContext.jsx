@@ -67,7 +67,7 @@ export function JourneyProvider({ children }) {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <JourneyContext.Provider

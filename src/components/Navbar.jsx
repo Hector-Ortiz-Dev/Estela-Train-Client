@@ -8,9 +8,15 @@ function Navbar() {
 
   return (
     <nav className="flex w-full justify-around py-5 top-0 left-0 right-0 z-10 bg-white/80 shadow-lg backdrop:blur-md">
-      
       {/* Links Section */}
       <div className="items-center hidden space-x-8 lg:flex">
+        <div className="flex items-center">
+          <Link to="/" className="cursor-pointer">
+            {/* <h1 className="text-2xl font-bold">Estela Train</h1> */}
+            <img src={logoText} alt="logo" className="h-8" />
+          </Link>
+        </div>
+        
         <Link
           to="/"
           className="flex text-black hover:text-blue-light text-xl
@@ -37,15 +43,9 @@ function Navbar() {
       </div>
 
       {/* Logo */}
-      <div className="flex items-center">
-        <Link to="/" className="cursor-pointer">
-          {/* <h1 className="text-2xl font-bold">Estela Train</h1> */}
-          <img src={logoText} alt="logo" className="h-8" />
-        </Link>
-      </div>
 
       {/* Auth Section */}
-      <div className="flex  items-center space-x-5">
+      <div className="flex items-center space-x-5">
         {isAuthenticated ? ( // Si el usuario está logeado
           <>
             <p className="text-3xl font-semibold first-letter:text-blue first-letter:font-black">

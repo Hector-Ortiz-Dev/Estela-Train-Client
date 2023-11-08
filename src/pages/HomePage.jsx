@@ -1,10 +1,18 @@
+import { useEffect } from "react";
+import { useCities } from "../context/CityContext";
 import { Link } from "react-router-dom";
 import landingImage from "../assets/train-space.jpg";
 
-const HomePage = () => {
+function HomePage() {
+  const { getCities, cities } = useCities();
+
+  useEffect(() => {
+    getCities();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="text-center my-16">
-
       {/* Lema */}
       <h1 className="font-main font-bold text-3xl md:text-8xl mb-8 text-gray">
         Estela <p className="inline-block text-blue">Train</p>
@@ -28,32 +36,12 @@ const HomePage = () => {
           <select
             autoComplete="Origen"
             className="w-full bg-white pl-2 text-base font-semibold outline-0 border-r border-gray appearance-none"
-            value={"Monterrey"}
           >
-            <option value="Monterrey">Monterrey</option>
-            <option value="Guadalajara">Guadalajara</option>
-            <option value="CDMX">CDMX</option>
-            <option value="Querétaro">Querétaro</option>
-            <option value="Puebla">Puebla</option>
-            <option value="Toluca">Toluca</option>
-            <option value="Aguascalientes">Aguascalientes</option>
-            <option value="San Luis Potosí">San Luis Potosí</option>
-            <option value="León">León</option>
-            <option value="Morelia">Morelia</option>
-            <option value="Cuernavaca">Cuernavaca</option>
-            <option value="Tijuana">Tijuana</option>
-            <option value="Cancún">Cancún</option>
-            <option value="Los Cabos">Los Cabos</option>
-            <option value="Mérida">Mérida</option>
-            <option value="Oaxaca">Oaxaca</option>
-            <option value="Villahermosa">Villahermosa</option>
-            <option value="Veracruz">Veracruz</option>
-            <option value="Culiacán">Culiacán</option>
-            <option value="Chihuahua">Chihuahua</option>
-            <option value="Hermosillo">Hermosillo</option>
-            <option value="Mazatlán">Mazatlán</option>
-            <option value="Acapulco">Acapulco</option>
-            <option value="Tampico">Tampico</option>
+            {cities.map((city) => (
+              <option key={city._id} value={city.name}>
+                {city.name}
+              </option>
+            ))}
           </select>
           <div className="flex items-center justify-center p-5">
             <svg
@@ -67,32 +55,12 @@ const HomePage = () => {
           <select
             autoComplete="Destino"
             className="w-full bg-white pl-2 text-base font-semibold outline-0 border-l border-r border-gray appearance-none"
-            value={"CDMX"}
           >
-            <option value="Monterrey">Monterrey</option>
-            <option value="Guadalajara">Guadalajara</option>
-            <option value="CDMX">CDMX</option>
-            <option value="Querétaro">Querétaro</option>
-            <option value="Puebla">Puebla</option>
-            <option value="Toluca">Toluca</option>
-            <option value="Aguascalientes">Aguascalientes</option>
-            <option value="San Luis Potosí">San Luis Potosí</option>
-            <option value="León">León</option>
-            <option value="Morelia">Morelia</option>
-            <option value="Cuernavaca">Cuernavaca</option>
-            <option value="Tijuana">Tijuana</option>
-            <option value="Cancún">Cancún</option>
-            <option value="Los Cabos">Los Cabos</option>
-            <option value="Mérida">Mérida</option>
-            <option value="Oaxaca">Oaxaca</option>
-            <option value="Villahermosa">Villahermosa</option>
-            <option value="Veracruz">Veracruz</option>
-            <option value="Culiacán">Culiacán</option>
-            <option value="Chihuahua">Chihuahua</option>
-            <option value="Hermosillo">Hermosillo</option>
-            <option value="Mazatlán">Mazatlán</option>
-            <option value="Acapulco">Acapulco</option>
-            <option value="Tampico">Tampico</option>
+            {cities.map((city) => (
+              <option key={city._id} value={city.name}>
+                {city.name}
+              </option>
+            ))}
           </select>
           <input
             type="date"
@@ -166,6 +134,6 @@ const HomePage = () => {
       </div>
     </div>
   );
-};
+}
 
 export default HomePage;

@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useJourneys } from "../context/JourneyContext";
-//import { useNavigate } from "react-router-dom";
 import JourneyCard from "../components/JourneyCard";
 
 function JourneysPage() {
