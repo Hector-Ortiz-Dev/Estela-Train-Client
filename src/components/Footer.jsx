@@ -21,7 +21,7 @@ function Footer() {
 
             <div className="flex flex-col space-y-3">
             <h3 className="text-2xl font-bold text-white font-main">Acerca de</h3>
-            <p className="text-gray-light">Hecho con ❤️ por Héctor Ortiz</p>
+            <p className="text-gray-light">Hecho por Héctor Ortiz</p>
             <p className="text-gray-light">2023</p>
             </div>
         </div>

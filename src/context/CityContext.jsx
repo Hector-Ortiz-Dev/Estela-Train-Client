@@ -22,7 +22,7 @@ export function CityProvider({ children }) {
     try {
       const res = await getCitiesRequest();
       setCities(res.data);
-      console.log(res);
+      //console.log(res);
     } catch (error) {
       console.log(error);
     }

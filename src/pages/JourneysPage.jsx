@@ -5,6 +5,8 @@ import JourneyCard from "../components/JourneyCard";
 function JourneysPage() {
   const { getJourneys, journeys } = useJourneys();
 
+  console.log(journeys);
+
   useEffect(() => {
     getJourneys();
     // eslint-disable-next-line react-hooks/exhaustive-deps

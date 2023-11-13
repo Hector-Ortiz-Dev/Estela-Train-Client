@@ -7,10 +7,12 @@ import HomePage from "./pages/HomePage";
 import JourneyFormPage from "./pages/JourneyFormPage";
 import JourneysPage from "./pages/JourneysPage";
 import ProfilePage from "./pages/ProfilePage";
+import SchedulePage from "./pages/SchedulePage";
 
 import ProtectedRoute from "./ProtectedRoute";
 import { JourneyProvider } from "./context/JourneyContext";
 import { CityProvider } from "./context/CityContext";
+// import { TicketProvider } from "./context/TicketContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -32,6 +34,7 @@ function App() {
                 <Route element={<ProtectedRoute />}>
                   <Route path="/journeys" element={<JourneysPage />} />
                   <Route path="/profile" element={<ProfilePage />} />
+                  <Route path="/schedule" element={<SchedulePage />} />
                 </Route>
               </Routes>
             </main>
