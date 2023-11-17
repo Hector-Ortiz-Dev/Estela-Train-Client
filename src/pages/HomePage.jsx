@@ -3,9 +3,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCities } from "../context/CityContext";
-import { TicketContext } from "../context/TicketContext";
 import { Link } from "react-router-dom";
-import { useLocalStorage } from "../hooks/useLocalStorage";
 import landingImage from "../assets/train-space.jpg";
 
 function HomePage() {
@@ -112,7 +110,7 @@ function HomePage() {
               className="bg-blue p-2 border-2 border-blue rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-green hover:border-green transition-colors duration-700"
               onClick={(e) => {
                 e.preventDefault();
-                console.log(ticketData);
+                //console.log(ticketData);
                 localStorage.setItem("ticket", JSON.stringify(ticketData));
                 navigate("/schedule");
               }}

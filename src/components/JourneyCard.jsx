@@ -16,6 +16,10 @@ function JourneyCard({ journey }) {
     //timeZoneName: "short", // Nombre de la zona horaria
   };
 
+  //console.log(journey.departure_date);
+  //const dateTemp = new Date(journey.departure_date).toLocaleDateString("es-MX", options);
+  //console.log(dateTemp);
+
   return (
     <div className="flex w-full items-center my-3 py-5 justify-center border-4 bg-gray-light border-gray rounded-xl shadow-md shadow-gray">
 
@@ -24,7 +28,7 @@ function JourneyCard({ journey }) {
       </h2>
 
       <p className="flex w-full items-center justify-center font-semibold text-lg">
-        {new Date(journey.departure_date).toLocaleDateString("es-ES", options)}
+        {new Date(journey.departure_date).toLocaleDateString("es-MX", options)}
       </p>
 
       <p className="flex w-2/4 items-center justify-center font-semibold text-lg border-l border-gray">
@@ -32,7 +36,7 @@ function JourneyCard({ journey }) {
       </p>
 
       <p className="flex w-2/4 items-center justify-center font-semibold text-lg border-l border-gray">
-        {"Seats: 10"}
+        {"Seats: " + journey.seats + "/40"}
       </p>
 
       <div className="flex w-1/2 text-white font-bold items-center justify-center border-l px-10 border-gray">
@@ -61,6 +65,7 @@ JourneyCard.propTypes = {
     arrival_date: PropTypes.string.isRequired,
     train: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
+    seats: PropTypes.number.isRequired,
     _id: PropTypes.string.isRequired,
   }).isRequired,
 };

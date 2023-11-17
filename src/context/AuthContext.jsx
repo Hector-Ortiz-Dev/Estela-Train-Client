@@ -27,11 +27,11 @@ export const AuthProvider = ({ children }) => {
   const signup = async (user) => {
     try {
       const res = await registerRequest(user);
-      console.log("Registro exitoso: ", res.data);
+      //console.log("Registro exitoso: ", res.data);
       if (res.status === 200) {
         setUser(res.data);
         setIsAuthenticated(true);
-        console.log("Registro correcto: ", res);
+        //console.log("Registro correcto: ", res);
       }
     } catch (error) {
       // console.log(error.response.data);
@@ -45,7 +45,7 @@ export const AuthProvider = ({ children }) => {
       const res = await loginRequest(user);
       setUser(res.data);
       setIsAuthenticated(true);
-      console.log("Login correcto: ", res);
+      //console.log("Login correcto: ", res);
     } catch (error) {
       //console.log(error.response.data);
       if (Array.isArray(error.response.data)) {

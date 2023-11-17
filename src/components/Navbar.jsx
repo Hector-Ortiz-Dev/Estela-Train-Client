@@ -26,7 +26,7 @@ function Navbar() {
         </Link>
 
         <Link
-          to="/"
+          to="/contact"
           className="flex text-black hover:text-blue-light text-xl
                     cursor-pointer font-bold transition-colors duration-300 hover:underline"
         >
@@ -34,7 +34,7 @@ function Navbar() {
         </Link>
 
         <Link
-          to="/"
+          to="/about"
           className="flex text-black hover:text-blue-light text-xl
                     cursor-pointer font-bold transition-colors duration-300 hover:underline"
         >

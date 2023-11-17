@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from "react";
 import {
   createJourneyRequest,
   getJourneysRequest,
+  getJourneysODDRequest,
   deleteJourneyRequest,
   getJourneyRequest,
   updateJourneyRequest,
@@ -29,6 +30,20 @@ export function JourneyProvider({ children }) {
   const getJourneys = async () => {
     try {
       const res = await getJourneysRequest();
+      setJourneys(res.data);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getJourneysOriginDestinationDate = async (
+    origin,
+    destination,
+    date
+  ) => {
+    try {
+      const res = await getJourneysODDRequest(origin, destination, date);
       setJourneys(res.data);
       console.log(res);
     } catch (error) {
@@ -75,6 +90,7 @@ export function JourneyProvider({ children }) {
         journeys,
         createJourney,
         getJourneys,
+        getJourneysOriginDestinationDate,
         deleteJourney,
         getJourney,
         updateJourney,
