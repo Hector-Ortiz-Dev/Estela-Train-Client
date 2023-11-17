@@ -5,12 +5,18 @@ import TrainJarilo from "../assets/train-jarilo.jpg";
 
 function AboutPage() {
   return (
-    <>
+    <div className="my-12">
+      <h1 className="text-6xl font-main font-semibold text-gray-800">
+        Acerca de
+      </h1>
+
+      <hr className="border-2 border-gray-light" />
+      
       {/* Acerca de Estela Train */}
       <div className="flex flex-col items-center justify-center my-10">
         <div className="flex flex-col items-center justify-center">
           <div className="text-3xl font-bold font-main">
-            Acerca de Estela Train
+            Estela Train
           </div>
           <div className="text-xl">
             Estela Train es un proyecto de tren de alta velocidad que conectará
@@ -23,14 +29,16 @@ function AboutPage() {
           <div className="text-xl">¡Reserva tu lugar desde ahora!</div>
           <Link
             to="/journeys"
-            className="bg-blue p-2 px-10 border-2 border-blue rounded-lg text-white text-xl font-semibold hover:bg-green hover:border-green transition-colors duration-700 mt-5"
+            className="bg-blue p-2 px-10 border-2 border-blue rounded-lg text-white text-xl font-semibold hover:bg-green hover:border-green transition-colors duration-700 my-5"
           >
             Reservar
           </Link>
         </div>
 
+      <hr className="border-2 w-full border-gray-light" />
+
         {/* Nuestro equipo */}
-        <div className="flex flex-col items-center justify-center mt-10">
+        <div className="flex flex-col items-center justify-center my-10">
           <div className="text-3xl font-bold font-main">Nuestro equipo</div>
           <div className="flex flex-col items-center justify-center mt-5">
             <div className="flex flex-col items-center justify-center">
@@ -46,6 +54,8 @@ function AboutPage() {
             </div>
           </div>
         </div>
+
+      <hr className="border-2 w-full border-gray-light" />
 
         {/* Imagenes */}
         <div className="flex flex-col items-center justify-center mt-10">
@@ -97,7 +107,7 @@ function AboutPage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

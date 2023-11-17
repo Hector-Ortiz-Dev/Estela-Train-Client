@@ -1,10 +1,18 @@
 function ContactPage() {
   return (
-    <>
+    <div className="my-12">
+      <h1 className="text-6xl font-main font-semibold text-gray-800">
+        Contacto
+      </h1>
+
+      <hr className="border-2 border-gray-light" />
+
       {/* Información de contacto de la empresa */}
       <div className="flex flex-col items-center justify-center my-10">
+        <h1 className="text-3xl font-main font-semibold text-gray-800">
+          Medios de contacto
+        </h1>
         <div className="flex flex-col items-center justify-center">
-          <div className="text-3xl font-bold font-main">Contacto</div>
           <div className="text-xl">Teléfono: 81-82XX-XXXX</div>
           <div className="text-xl">
             {"Correo: "}
@@ -18,6 +26,8 @@ function ContactPage() {
         </div>
       </div>
 
+      <hr className="border-blue-light" />
+
       {/* Información de ubicación de la empresa */}
       <div className="flex flex-col items-center justify-center my-10">
         <div className="flex flex-col items-center justify-center">
@@ -30,6 +40,8 @@ function ContactPage() {
           <div className="text-xl">Estado: Nuevo León</div>
         </div>
       </div>
+
+      <hr className="border-blue-light" />
 
       {/* Mapa de ubicación de la empresa */}
       <div className="flex flex-col items-center justify-center my-10">
@@ -46,7 +58,7 @@ function ContactPage() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

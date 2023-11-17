@@ -7,7 +7,7 @@ import HomePage from "./pages/HomePage";
 import ContactPage from "./pages/ContactPage";
 import JourneyFormPage from "./pages/JourneyFormPage";
 import JourneysPage from "./pages/JourneysPage";
-import ProfilePage from "./pages/ProfilePage";
+import ProfilePage from "./pages/Profile/ProfilePage";
 import SchedulePage from "./pages/SchedulePage";
 import PassengersPage from "./pages/PassengersPage";
 import AboutPage from "./pages/AboutPage";

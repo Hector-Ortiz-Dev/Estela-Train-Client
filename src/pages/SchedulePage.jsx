@@ -39,15 +39,18 @@ function SchedulePage() {
 
   return (
     <div className="my-10">
-      <h1 className="text-center text-6xl font-main font-bold">
+      <h1 className="text-6xl font-main font-bold">
         Horarios de salida
       </h1>
+      <p className="text-2xl text-gray">Selecciona un viaje</p>
+
+      <hr className="border-2 border-gray-light" />
 
       {/* Si hay un ticket en localStorage, mostrar los horarios de salida */}
       {ticket ? (
         <>
-          <div className="text-center font-main ">
-            <div className="text-3xl">
+          <div className="text-center font-main mt-6">
+            <div className="text-6xl font-bold mb-2">
               {ticket.origin}{" "}
               <svg
                 viewBox="0 0 448 512"
@@ -58,7 +61,7 @@ function SchedulePage() {
               </svg>{" "}
               {ticket.destination}
             </div>
-            <div className="text-lg">{formattedDate}</div>
+            <div className="text-xl">{formattedDate}</div>
 
             <div className="my-10 px-32 justify-center">
               {/* Si hay viajes, mostrarlos */}

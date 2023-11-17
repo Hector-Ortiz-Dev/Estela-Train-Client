@@ -1,5 +1,5 @@
-import { useAuth } from "../context/AuthContext";
-import UserPicture from "../assets/user.jpg";
+import { useAuth } from "../../context/AuthContext";
+import UserPicture from "../../assets/user.jpg";
 import { Link } from "react-router-dom";
 
 function ProfilePage() {
