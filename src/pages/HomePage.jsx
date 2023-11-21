@@ -11,10 +11,9 @@ function HomePage() {
     origin: "Monterrey",
     destination: "Cd. Mexico",
     date: "",
-    passengers: 1,
+    passengers: "1",
   };
   const navigate = useNavigate();
-  // const { setTicket } = useContext(TicketContext);
 
   const { getCities, cities } = useCities();
   const [ticketData, setTicketData] = useState(initTicket);
@@ -110,9 +109,14 @@ function HomePage() {
               className="bg-blue p-2 border-2 border-blue rounded-tr-lg rounded-br-lg text-white font-semibold hover:bg-green hover:border-green transition-colors duration-700"
               onClick={(e) => {
                 e.preventDefault();
+                if (!ticketData.date == "") {
                 //console.log(ticketData);
                 localStorage.setItem("ticket", JSON.stringify(ticketData));
                 navigate("/schedule");
+                }
+                else {
+                  console.log("Faltan datos");
+                }
               }}
             >
               Buscar

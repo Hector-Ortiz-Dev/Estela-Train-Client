@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useForm } from "react-hook-form";
 import { useAuth } from "../context/AuthContext";
 import { useEffect } from "react";
@@ -14,7 +15,6 @@ function RegisterPage() {
 
   useEffect(() => {
     if (isAuthenticated) navigate("/profile");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated]);
 
   const onSubmit = handleSubmit(async (values) => {

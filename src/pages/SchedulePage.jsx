@@ -1,10 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import ScheduleCard from "../components/ScheduleCard";
 import dayjs from "dayjs";
 import "dayjs/locale/es-mx";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { useJourneys } from "../context/JourneyContext";
 
 function SchedulePage() {
@@ -15,7 +15,6 @@ function SchedulePage() {
 
   // Obtener el ticket de localStorage
   const ticket = JSON.parse(localStorage.getItem("ticket"));
-  //console.log("ticket date " + ticket.date);
 
   // Obtener los viajes de la fecha seleccionada
   useEffect(() => {
@@ -28,7 +27,6 @@ function SchedulePage() {
       ticket.destination,
       ticket.date
     );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Formatear la fecha
@@ -66,7 +64,7 @@ function SchedulePage() {
             <div className="my-10 px-32 justify-center">
               {/* Si hay viajes, mostrarlos */}
               {journeys.map((journey) => (
-                <ScheduleCard journey={journey} key={journey._id} />
+                <ScheduleCard journey={journey} ticket={ticket} key={journey._id} />
               ))}
             </div>
           </div>

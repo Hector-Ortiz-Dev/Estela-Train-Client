@@ -7,16 +7,17 @@ import HomePage from "./pages/HomePage";
 import ContactPage from "./pages/ContactPage";
 import JourneyFormPage from "./pages/JourneyFormPage";
 import JourneysPage from "./pages/JourneysPage";
-import ProfilePage from "./pages/Profile/ProfilePage";
+import ProfilePage from "./pages/profile/ProfilePage";
 import SchedulePage from "./pages/SchedulePage";
 import PassengersPage from "./pages/PassengersPage";
 import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
+import FormTest from "./pages/test/FormTest";
+
 import ProtectedRoute from "./ProtectedRoute";
 import { JourneyProvider } from "./context/JourneyContext";
 import { CityProvider } from "./context/CityContext";
-// import { TicketProvider } from "./context/TicketContext";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -37,12 +38,15 @@ function App() {
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/add-journey" element={<JourneyFormPage />} />
                 <Route path="/journeys/:id" element={<JourneyFormPage />} />
-                <Route path="/passengers" element={<PassengersPage />} />
+
+                {/* Testing */}
+                <Route path="/form-test" element={<FormTest />} />
 
                 <Route element={<ProtectedRoute />}>
                   <Route path="/journeys" element={<JourneysPage />} />
                   <Route path="/profile" element={<ProfilePage />} />
                   <Route path="/schedule" element={<SchedulePage />} />
+                  <Route path="/passengers" element={<PassengersPage />} />
                 </Route>
               </Routes>
             </main>

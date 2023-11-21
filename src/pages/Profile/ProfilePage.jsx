@@ -1,6 +1,7 @@
 import { useAuth } from "../../context/AuthContext";
 import UserPicture from "../../assets/user.jpg";
 import { Link } from "react-router-dom";
+import "./profile.css"
 
 function ProfilePage() {
   const { user } = useAuth();
@@ -47,7 +48,7 @@ function ProfilePage() {
         <div className="flex flex-col justify-center items-center">
           <Link
             to="/profile"
-            className="flex bg-green h-24 w-96 p-2 px-10 border-4 border-green rounded-lg text-white font-semibold hover:bg-white hover:text-green hover:fill-green transition-colors duration-700"
+            className="flex items-center icon-hover-green bg-green h-24 w-96 p-2 px-10 border-4 border-green rounded-lg text-white font-semibold hover:bg-white hover:text-green hover:fill-green transition-colors duration-700"
           >
             <svg
               viewBox="0 0 576 512"
@@ -61,7 +62,7 @@ function ProfilePage() {
 
           <Link
             to="/profile"
-            className="flex bg-[#b29a45] h-24 w-96 p-2 px-10 border-4 border-[#b29a45] rounded-lg text-white font-semibold hover:bg-white hover:text-[#b29a45] transition-colors duration-700 mt-5"
+            className="flex items-center icon-hover-golden bg-[#b29a45] h-24 w-96 p-2 px-10 border-4 border-[#b29a45] rounded-lg text-white font-semibold hover:bg-white hover:text-[#b29a45] transition-colors duration-700 mt-5"
           >
             <svg
               viewBox="0 0 512 512"
@@ -77,7 +78,7 @@ function ProfilePage() {
         <div className="flex flex-col justify-center items-center">
           <Link
             to="/profile"
-            className="flex bg-[#366abd] h-24 w-96 p-2 px-10 border-4 border-[#366abd] rounded-lg text-white font-semibold hover:bg-white hover:text-[#366abd] transition-colors duration-700"
+            className="flex items-center icon-hover-blue bg-[#366abd] h-24 w-96 p-2 px-10 border-4 border-[#366abd] rounded-lg text-white font-semibold hover:bg-white hover:text-[#366abd] transition-colors duration-700"
           >
             <svg
               viewBox="0 0 448 512"
@@ -91,7 +92,7 @@ function ProfilePage() {
 
           <Link
             to="/profile"
-            className="flex bg-[#ff0f00] h-24 w-96 p-2 px-10 border-4 border-[#ff0f00] rounded-lg text-white font-semibold hover:bg-white hover:text-[#ff0f00] transition-colors duration-700 mt-5"
+            className="flex items-center icon-hover-red bg-[#ff0f00] h-24 w-96 p-2 px-10 border-4 border-[#ff0f00] rounded-lg text-white font-semibold hover:bg-white hover:text-[#ff0f00] transition-colors duration-700 mt-5"
           >
             <svg
               viewBox="0 0 512 512"

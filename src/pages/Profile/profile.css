@@ -1,0 +1,27 @@
+.icon-hover-green:hover > * {
+    fill: var(--green);
+    transition-property: fill;
+    transition-duration: 700ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-hover-blue:hover > * {
+    fill: #366abd;
+    transition-property: fill;
+    transition-duration: 700ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-hover-golden:hover > * {
+    fill: #b29a45;
+    transition-property: fill;
+    transition-duration: 700ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-hover-red:hover > * {
+    fill: #ff0f00;
+    transition-property: fill;
+    transition-duration: 700ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
 
-function ScheduleCard({ journey }) {
+function ScheduleCard({ journey, ticket }) {
   // Obtener horas
   const departureDate = dayjs(journey.departure_date);
   const departureTime = departureDate.format("hh:mm a");
@@ -12,7 +12,15 @@ function ScheduleCard({ journey }) {
 
   // Seleccionar viaje y continuar a pasajeros
   const selectJourney = () => {
-    //navigate("/passengers");
+    const ticketData = {
+      origin: ticket.origin,
+      destination: ticket.destination,
+      date: ticket.date,
+      passengers: ticket.passengers,
+      id_journey: journey._id,
+    };
+    localStorage.setItem("ticket", JSON.stringify(ticketData));
+    navigate("/passengers");
   };
 
   return (
@@ -49,6 +57,12 @@ ScheduleCard.propTypes = {
     price: PropTypes.number.isRequired,
     seats: PropTypes.number.isRequired,
     _id: PropTypes.string.isRequired,
+  }).isRequired,
+  ticket: PropTypes.shape({
+    origin: PropTypes.string.isRequired,
+    destination: PropTypes.string.isRequired,
+    date: PropTypes.string.isRequired,
+    passengers: PropTypes.string.isRequired,
   }).isRequired,
 };
 
