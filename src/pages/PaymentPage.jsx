@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useJourneys } from "../context/JourneyContext";
 import { useAuth } from "../context/AuthContext";
+import { usePayments } from "../context/PaymentContext";
+import { useTickets } from "../context/TicketContext";
 import dayjs from "dayjs";
 import "dayjs/locale/es-mx";
 import { getDateNowISO } from "../lib/getDateNowISO";
@@ -12,6 +14,8 @@ function PaymentPage() {
   let navigate = useNavigate();
   const { user } = useAuth();
   const [isLoading, setLoading] = useState(false);
+  const { createPayment } = usePayments();
+  const { createTicket } = useTickets();
   
   const [paymentMethod, setPaymentMethod] = useState('Sin tarjeta');
 
@@ -86,12 +90,9 @@ function PaymentPage() {
   const date = dayjs(journeys.departure_date);
   const formattedDate = date.format("DD/MM/YYYY");
 
-  // Arreglo de tickets
-  const ticketsData = [];
-
-  const addTicketsData = (passenger, id_payment) => {
+  const createTickets = (passenger, id_payment) => {
     const newTicket = {
-      name: passenger.nombre,
+      passenger: passenger.nombre,
       type: passenger.tipo,
       genre: passenger.genero,
       origin: journeys.origin,
@@ -100,12 +101,12 @@ function PaymentPage() {
       date: journeys.departure_date,
       total: total,
       id_journey: journeys._id,
-      //id_payment: id_payment
+      id_payment: id_payment
     };
-    ticketsData.push(newTicket);
+    createTicket(newTicket);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Procesar compra
@@ -116,15 +117,13 @@ function PaymentPage() {
       date: getDateNowISO(),
       total: total,
     };
-
-    console.log(paymentData);
+    const id_payment = await createPayment(paymentData);
 
     // Generar tickets
     ticket.passengersInfo.forEach((passenger) => {
-      addTicketsData(passenger, "pendient");
+      createTickets(passenger, id_payment);
     });
 
-    //console.log(ticketsData);
     // navigate("/ticket");
   };
 

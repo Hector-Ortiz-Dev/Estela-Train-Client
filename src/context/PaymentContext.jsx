@@ -48,7 +48,8 @@ export function PaymentProvider({ children }) {
 
   const createPayment = async (payment) => {
     const res = await createPaymentRequest(payment);
-    console.log(res);
+    console.log(res.data);
+    return res.data._id;
   };
 
   const updatePayment = async (id, payment) => {

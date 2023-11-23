@@ -48,7 +48,7 @@ export function TicketProvider({ children }) {
 
   const createTicket = async (ticket) => {
     const res = await createTicketRequest(ticket);
-    console.log(res);
+    console.log(res.data);
   };
 
   const updateTicket = async (id, ticket) => {
