@@ -11,7 +11,7 @@ function PassengersPage() {
   // Obtener numero de pasajeros
   const passengersNum = parseInt(ticket?.passengers);
 
-  const [pasajeros, setPasajeros] = useState([]);
+  const [passengers, setPassengers] = useState([]);
 
   // Regresar a Home si no hay ticket
   useEffect(() => {
@@ -21,7 +21,7 @@ function PassengersPage() {
   });
 
   const handlePassengerInfoChange = (index, field, value) => {
-    setPasajeros((prevPasajeros) => {
+    setPassengers((prevPasajeros) => {
       const updatedPasajeros = [...prevPasajeros];
       if (!updatedPasajeros[index]) {
         updatedPasajeros[index] = {}; // Si es un pasajero nuevo, inicializarlo como un objeto vacío
@@ -80,11 +80,20 @@ function PassengersPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (pasajeros.length < passengersNum) {
+    if (passengers.length < passengersNum) {
       console.log("ERROR INGRESA TODOS LOS DATOS");
       return;
     }
-    console.log(pasajeros);
+    const ticketData = {
+      origin: ticket.origin,
+      destination: ticket.destination,
+      date: ticket.date,
+      passengers: ticket.passengers,
+      id_journey: ticket.id_journey,
+      passengersInfo: passengers
+    };
+    localStorage.setItem("ticket", JSON.stringify(ticketData));
+    navigate("/payment");
   };
 
   return (

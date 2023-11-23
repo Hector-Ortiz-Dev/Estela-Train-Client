@@ -4,12 +4,13 @@ import { AuthProvider } from "./context/AuthContext";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
-import ContactPage from "./pages/ContactPage";
 import JourneyFormPage from "./pages/JourneyFormPage";
 import JourneysPage from "./pages/JourneysPage";
 import ProfilePage from "./pages/profile/ProfilePage";
 import SchedulePage from "./pages/SchedulePage";
 import PassengersPage from "./pages/PassengersPage";
+import PaymentPage from "./pages/PaymentPage";
+import ContactPage from "./pages/ContactPage";
 import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
@@ -47,6 +48,7 @@ function App() {
                   <Route path="/profile" element={<ProfilePage />} />
                   <Route path="/schedule" element={<SchedulePage />} />
                   <Route path="/passengers" element={<PassengersPage />} />
+                  <Route path="/payment" element={<PaymentPage />} />
                 </Route>
               </Routes>
             </main>

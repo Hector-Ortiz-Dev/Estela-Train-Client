@@ -69,6 +69,7 @@ export function JourneyProvider({ children }) {
   const getJourney = async (id) => {
     try {
       const res = await getJourneyRequest(id);
+      setJourneys(res.data);
       return res.data;
     } catch (error) {
       console.log(error);
