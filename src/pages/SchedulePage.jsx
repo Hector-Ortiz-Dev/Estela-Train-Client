@@ -3,12 +3,13 @@
 import ScheduleCard from "../components/ScheduleCard";
 import dayjs from "dayjs";
 import "dayjs/locale/es-mx";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useJourneys } from "../context/JourneyContext";
 
 function SchedulePage() {
   let navigate = useNavigate();
+  const [isLoading, setLoading] = useState(false);
 
   // Obtener los viajes de JourneyContext
   const { getJourneysOriginDestinationDate, journeys } = useJourneys();
@@ -29,17 +30,35 @@ function SchedulePage() {
     );
   }, []);
 
+  useEffect(() => {
+    if (Object.entries(journeys).length) {
+      setLoading(true);
+    }
+  }, [journeys]);
+
   // Formatear la fecha
   dayjs.locale("es-mx");
   const date = dayjs(ticket.date);
   const formattedDate = date.format("dddd DD [de] MMMM [del] YYYY");
   //console.log(formattedDate);
 
+  if (!isLoading)
+    return (
+      <div className="my-10">
+        <h1 className="text-6xl font-main font-bold">Horarios de salida</h1>
+        <p className="text-2xl text-gray">Obteniendo información...</p>
+
+        <hr className="border-2 border-gray-light" />
+
+        <div className="flex flex-col w-full md:flex-row align-center mt-12">
+          <p className="text-6xl font-main text-gray-light">Cargando...</p>
+        </div>
+      </div>
+    );
+
   return (
     <div className="my-10">
-      <h1 className="text-6xl font-main font-bold">
-        Horarios de salida
-      </h1>
+      <h1 className="text-6xl font-main font-bold">Horarios de salida</h1>
       <p className="text-2xl text-gray">Selecciona un viaje</p>
 
       <hr className="border-2 border-gray-light" />
@@ -64,7 +83,11 @@ function SchedulePage() {
             <div className="my-10 px-32 justify-center">
               {/* Si hay viajes, mostrarlos */}
               {journeys.map((journey) => (
-                <ScheduleCard journey={journey} ticket={ticket} key={journey._id} />
+                <ScheduleCard
+                  journey={journey}
+                  ticket={ticket}
+                  key={journey._id}
+                />
               ))}
             </div>
           </div>

@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from "react";
 import { 
     getTicketsRequest,
     getTicketRequest,
+    getTicketsIdPaymentRequest,
     createTicketRequest,
     updateTicketRequest,
     deleteTicketRequest
@@ -46,9 +47,22 @@ export function TicketProvider({ children }) {
     }
   };
 
+  const getTicketsIdPayment = async (id_payment) => {
+    try {
+      const res = await getTicketsIdPaymentRequest(id_payment);
+      setTickets(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const createTicket = async (ticket) => {
+    try{
     const res = await createTicketRequest(ticket);
     console.log(res.data);
+    } catch(error) {
+      console.log(error);
+    }
   };
 
   const updateTicket = async (id, ticket) => {
@@ -76,6 +90,7 @@ export function TicketProvider({ children }) {
         tickets,
         createTicket,
         getTickets,
+        getTicketsIdPayment,
         deleteTicket,
         getTicket,
         updateTicket,

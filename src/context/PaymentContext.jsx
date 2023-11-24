@@ -2,6 +2,7 @@ import { createContext, useContext, useState } from "react";
 import {
   getPaymentsRequest,
   getPaymentRequest,
+  getPaymentsbyUserRequest,
   createPaymentRequest,
   updatePaymentRequest,
   deletePaymentRequest,
@@ -46,6 +47,16 @@ export function PaymentProvider({ children }) {
     }
   };
 
+  const getPaymentsbyUser = async(id) => {
+    try {
+      const res = await getPaymentsbyUserRequest(id);
+      setPayments(res.data);
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   const createPayment = async (payment) => {
     const res = await createPaymentRequest(payment);
     console.log(res.data);
@@ -77,6 +88,7 @@ export function PaymentProvider({ children }) {
         payments,
         createPayment,
         getPayments,
+        getPaymentsbyUser,
         deletePayment,
         getPayment,
         updatePayment,

@@ -6,6 +6,7 @@ import { useJourneys } from "../context/JourneyContext";
 import { useAuth } from "../context/AuthContext";
 import { usePayments } from "../context/PaymentContext";
 import { useTickets } from "../context/TicketContext";
+import { usePayMethods } from "../context/PayMethodsContext";
 import dayjs from "dayjs";
 import "dayjs/locale/es-mx";
 import { getDateNowISO } from "../lib/getDateNowISO";
@@ -16,15 +17,14 @@ function PaymentPage() {
   const [isLoading, setLoading] = useState(false);
   const { createPayment } = usePayments();
   const { createTicket } = useTickets();
-  
-  const [paymentMethod, setPaymentMethod] = useState('Sin tarjeta');
+  const { getPayMethodIdUser, payMethods } = usePayMethods();
+  const { getJourney, journeys } = useJourneys();
+
+  const [paymentMethod, setPaymentMethod] = useState("Sin tarjeta");
 
   // Obtener el ticket de localStorage
   const ticket = JSON.parse(localStorage.getItem("ticket"));
   const numPassengers = parseInt(ticket.passengers);
-
-  // Obtener viaje por id
-  const { getJourney, journeys } = useJourneys();
 
   // Formatear horas
   const departureDate = dayjs(journeys.departure_date);
@@ -39,8 +39,8 @@ function PaymentPage() {
     }
 
     getJourney(ticket.id_journey);
+    getPayMethodIdUser(user.id);
   }, []);
-  // console.log(journeys);
 
   useEffect(() => {
     if (Object.entries(journeys).length) {
@@ -85,11 +85,6 @@ function PaymentPage() {
   // Total
   const total = subAdult + subMinor + subOlder + subStation + subSecure;
 
-  // Formatear fecha
-  dayjs.locale("es-mx");
-  const date = dayjs(journeys.departure_date);
-  const formattedDate = date.format("DD/MM/YYYY");
-
   const createTickets = (passenger, id_payment) => {
     const newTicket = {
       passenger: passenger.nombre,
@@ -101,7 +96,7 @@ function PaymentPage() {
       date: journeys.departure_date,
       total: total,
       id_journey: journeys._id,
-      id_payment: id_payment
+      id_payment: id_payment,
     };
     createTicket(newTicket);
   };
@@ -124,7 +119,7 @@ function PaymentPage() {
       createTickets(passenger, id_payment);
     });
 
-    // navigate("/ticket");
+    navigate("/tickets/" + id_payment);
   };
 
   if (!isLoading)
@@ -192,13 +187,26 @@ function PaymentPage() {
           {/* Metodo de pago */}
           <h1 className="font-bold mt-8 text-3xl ">Método de pago</h1>
           <select
-            className="items-center w-1/4 my-3 px-2 py-1 border-4 bg-gray-light border-gray rounded-xl shadow-md shadow-gray text-2xl font-bold appearance-none"
+            className="items-center w-3/6 my-3 px-2 py-1 border-4 bg-gray-light text-center border-gray rounded-xl shadow-md shadow-gray text-2xl font-bold appearance-none truncate"
             name="paymentMethod"
             onChange={handleChange}
           >
             <option value="Sin tarjeta" className="font-semibold text-xl">
               Sin tarjeta
             </option>
+            {payMethods.length !== 0 ? (
+              payMethods.map((payMethod) => (
+                <option
+                  className="font-semibold text-xl"
+                  key={payMethod._id}
+                  value={payMethod._id}
+                >
+                  {"**** **** **** " + payMethod.card_number.slice(-4)}
+                </option>
+              ))
+            ) : (
+              <></>
+            )}
           </select>
 
           <hr className="mt-2 mr-10 border-2 border-gray-light" />

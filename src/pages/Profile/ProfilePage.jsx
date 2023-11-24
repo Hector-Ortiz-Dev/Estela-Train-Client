@@ -47,7 +47,7 @@ function ProfilePage() {
       <div className="flex flex-col md:flex-row text-4xl justify-center align-center mt-12 space-x-20">
         <div className="flex flex-col justify-center items-center">
           <Link
-            to="/profile"
+            to="/paymentmethods"
             className="flex items-center icon-hover-green bg-green h-24 w-96 p-2 px-10 border-4 border-green rounded-lg text-white font-semibold hover:bg-white hover:text-green hover:fill-green transition-colors duration-700"
           >
             <svg
@@ -77,7 +77,7 @@ function ProfilePage() {
 
         <div className="flex flex-col justify-center items-center">
           <Link
-            to="/profile"
+            to="/myjourneys"
             className="flex items-center icon-hover-blue bg-[#366abd] h-24 w-96 p-2 px-10 border-4 border-[#366abd] rounded-lg text-white font-semibold hover:bg-white hover:text-[#366abd] transition-colors duration-700"
           >
             <svg
