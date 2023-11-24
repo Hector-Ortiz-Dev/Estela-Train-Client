@@ -42,19 +42,19 @@ function TicketPage() {
   console.log(payments);
   console.log(journeys);
 
-  if (!isLoading)
-    return (
-      <div className="my-10">
-        <h1 className="text-6xl font-main font-bold">Tickets</h1>
-        <p className="text-2xl text-gray">Obteniendo información...</p>
+  // if (!isLoading)
+  //   return (
+  //     <div className="my-10">
+  //       <h1 className="text-6xl font-main font-bold">Tickets</h1>
+  //       <p className="text-2xl text-gray">Obteniendo información...</p>
 
-        <hr className="border-2 border-gray-light" />
+  //       <hr className="border-2 border-gray-light" />
 
-        <div className="flex flex-col w-full md:flex-row align-center mt-12">
-          <p className="text-6xl font-main text-gray-light">Cargando...</p>
-        </div>
-      </div>
-    );
+  //       <div className="flex flex-col w-full md:flex-row align-center mt-12">
+  //         <p className="text-6xl font-main text-gray-light">Cargando...</p>
+  //       </div>
+  //     </div>
+  //   );
 
   return (
     <div className="my-10">
