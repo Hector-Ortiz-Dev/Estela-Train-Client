@@ -8,6 +8,10 @@
 - **Visualización de Viajes**: Explora todos los emocionantes destinos de nuestros trenes bala en México.
 - **Administrador**: Si eres administrador, puedes agregar nuevos viajes y eliminar los existentes.
 - **Diseño en Proceso**: Estamos trabajando en un diseño atractivo y amigable para todas las ventanas del cliente.
+- **Compra y Pago de Boletos**: Ventana de compra y pago de boletos fácil de usar.
+- **Perfil de Usuario**: Gestiona tu perfil de usuario y mantén un registro de tus compras.
+- **Historial de Compras**: Accede a tu historial de compras y obtén información sobre tus viajes anteriores.
+- **Gestión de Métodos de Pago**: Administra tus métodos de pago de manera segura y sencilla.
 
 ## Tecnologías Utilizadas 🛠️
 
@@ -15,14 +19,6 @@
 - **React**: React se encarga de algunas partes específicas de la aplicación para una mejor experiencia del usuario.
 - **Tailwind CSS**: Se da diseño a  nuestra aplicación de manera eficiente con Tailwind CSS.
 - **Base de Datos (MongoDB)**: Se implementará una base de datos para gestionar perfiles de usuario, historial de compras y métodos de pago.
-
-## Próximas Características 🚀
-
-- **Compra y Pago de Boletos**: Ventana de compra y pago de boletos fácil de usar.
-- **Selección de Asientos**: Pronto podrás elegir tu asiento en nuestros trenes.
-- **Perfil de Usuario**: Gestiona tu perfil de usuario y mantén un registro de tus compras.
-- **Historial de Compras**: Accede a tu historial de compras y obtén información sobre tus viajes anteriores.
-- **Gestión de Métodos de Pago**: Administra tus métodos de pago de manera segura y sencilla.
 
 ## Contribución 🤝
 
